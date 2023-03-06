@@ -25,8 +25,8 @@ public class Sorti
     {
         var rand = new Random();
         for (int i = 0; i < N; i++)
-        {
-            arr[i] = rand.NextDouble();
+        { 
+            arr[i] = rand.NextDouble() * 2 - 1;
         }
     }
 }
@@ -54,94 +54,122 @@ class Program
         string path = @"C:\asd\note.txt";
         using (StreamWriter fstream = new StreamWriter(path))
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            Sorti.Vibor(arr1000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 1000 = " + stopwatch.ElapsedMilliseconds);
-            TimeSpan ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            string text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr2000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 2000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr4000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 4000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr8000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 8000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr16000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 16000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text = stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr32000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 32000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr64000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 64000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text = stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
-
-            stopwatch.Start();
-            Sorti.Vibor(arr128000);
-            stopwatch.Stop();
-            Console.WriteLine("Сортировка 128000 = " + stopwatch.ElapsedMilliseconds);
-            ts = stopwatch.Elapsed;
-            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
-                            ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
-            text =stopwatch.ElapsedMilliseconds.ToString();
-            fstream.WriteLine(text);
-            stopwatch.Reset();
+            
+                Stopwatch stopwatch = new Stopwatch();
+            TimeSpan ts;
+            string text;
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr1000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 1000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr1000, 1000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr2000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 2000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr2000, 2000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr4000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 4000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr4000, 4000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr8000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 8000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr8000, 8000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr16000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 16000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr16000, 16000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr32000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 32000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr32000, 32000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr64000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 64000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr64000, 64000);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                stopwatch.Start();
+                Sorti.Vibor(arr128000);
+                stopwatch.Stop();
+                Console.WriteLine("Сортировка 128000 = " + stopwatch.ElapsedMilliseconds);
+                ts = stopwatch.Elapsed;
+                Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
+                text = stopwatch.ElapsedMilliseconds.ToString();
+                fstream.WriteLine(text);
+                stopwatch.Reset();
+                Sorti.Randomich(arr128000, 128000);
+            }
         }
 
     }
